@@ -17,7 +17,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 # @app.route('/interaction_page')
 @app.route('/modification')
-def index():
+def modification_page():
     path_index = request.args['path_index']
     paths = [
             {
@@ -43,7 +43,7 @@ def index():
     path = paths[int(path_index)]['reasoning_path']
     print(path)
     #print(os.path.dirname(app.instance_path))
-    resp = make_response(render_template('index.html', path=path, css=url_for('static', filename="css/main.css")))
+    resp = make_response(render_template('modification_page.html', path=path, css=url_for('static', filename="css/main.css")))
     #resp = make_response(render_template('tree_with_gojs.html'))
     resp.headers['Access-Control-Allow-Origin'] = '*' #to support the cross origin request
     resp.cache_control.max_age = 1
