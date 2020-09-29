@@ -1,2 +1,2 @@
 # HAICOR
-Human-AI co-reasoning system
+Human-AI co-reasoning system v3
