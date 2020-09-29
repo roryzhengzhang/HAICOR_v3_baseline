@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <title>Human_AI co-reasoning system</title>
+    <link rel="stylesheet" type="text/css" href='{{css}}'>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    {% block head_extension %} {% endblock %}
+</head>
+
+<body style="height: 95vh;">
+    <div class="wrapper" style="height: 100%;">
+        <div id="header-row" class="row" style="height: 10%;">
+            <div id="platform-label" class="col-7" style="text-align: left;">
+                <strong style="margin-left: 10px;">Human-AI co-reasoning platform</strong>
+            </div>
+
+            <div class="col-5" style="text-align: right;">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-primary" id="human_need_list">Human needs</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-primary" id="relation_type_interpretation">Relation types and interpretation</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="workplace-row" class="row container-fluid" style="height: 90%;">
+            {%block content%} {% endblock %}
+        </div>
+
+        {% block widget_extension%} {% endblock %}
+    </div>
+    
+    <div class="modal fade" id="RelationTypeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Relation type</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div id="relation_type" class="row" style="text-align: left; display: inline-block; margin-left: auto; margin-right: auto;">
+                        <div class="row">
+                            <div class="col">
+                                <b>related to</b>: [w1] is like [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>is a</b>: [w1] is a type of [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>used for</b>: [w1] is used for [w2]
+                            </div>
+            
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>capable of</b>: [w1] can [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>causes</b>: Sometimes [w1] causes [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>has a</b>: [w1] has [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>has subevent</b>: Something you do when you [w1] is [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>has first subevent</b>: the first thing you do when you [w1] is [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>has last subevent</b>: the last thing you do when you [w1] is [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>has prerequisite</b>: In order for [w1] to happen, [w2] needs to happen
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>has property</b>： [w1] is [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>motivated by goal</b>: You would [w1] because you want to [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>obstructed by</b>: [w1] can be prevented by [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>desires</b>: [w1] wants [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>synonym</b>: [w1] and [w2] have similar meanings
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>antonym</b>: [w1] is the opposite of [w2]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>entails</b>: if [w1] is happening, [w2] is also happening
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <b>manner of</b>: [w1] is a specific way of doing [w2]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="Close-Human-Need-Button"
+                    data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade" id="HumanNeedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Set of human needs</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div id="human-need" class="row" style="text-align: center; display: inline-block; margin-left: auto; margin-right: auto;">
+                            <div class="row">
+                                <div class="col-3">
+                                    status
+                                </div>
+                                <div class="col-3">
+                                    approval
+                                </div>
+                                <div class="col-3">
+                                    tranquility
+                                </div>
+                                <div class="col-3">
+                                    competition
+                                </div>
+                
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    romance
+                                </div>
+                                <div class="col-3">
+                                    food
+                                </div>
+                                <div class="col-3">
+                                    independent
+                                </div>
+                                <div class="col-3">
+                                    power
+                                </div>
+                
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    serenity
+                                </div>
+                                <div class="col-3">
+                                    honor
+                                </div>
+                                <div class="col-3">
+                                    belonging
+                                </div>
+                                <div class="col-3">
+                                    contact
+                                </div>
+                
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    rest
+                                </div>
+                                <div class="col-3">
+                                    family
+                                </div>
+                                <div class="col-3">
+                                    idealism
+                                </div>
+                                <div class="col-3">
+                                    curiosity
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    savings
+                                </div>
+                                <div class="col-3">
+                                    order
+                                </div>
+                                <div class="col-3">
+                                    health
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="Close-Human-Need-Button"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://d3js.org/d3.v4.min.js" type="text/javascript"></script>
+    <script src="http://d3js.org/d3-selection-multi.v1.js"></script>
+    <script>
+        jQuery('#human_need_list').click( function () {
+            jQuery('#HumanNeedModal').modal('toggle');
+        });
+
+        jQuery('#relation_type_interpretation').click( function () {
+            jQuery('#RelationTypeModal').modal('toggle');
+        });
+    </script>
+    {% block body_script_extension %} {% endblock %}
+    <!-- <script src="../static/d3-tip.js"></script>
+        <script src="../static/rete.js"></script> -->
+    <!-- <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script> -->
+    <!-- <script src="../static/vis_graph.js" type="text/javascript"></script> -->
+    <!-- <script src="../static/path_selection.js" type="text/javascript"></script> -->
+</body>
+
+</html>

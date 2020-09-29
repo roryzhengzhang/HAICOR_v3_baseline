@@ -1,0 +1,59 @@
+{
+    "original_path": "leftover related to remaining synonym rest",
+    "operation_sequence": [
+        {
+            "type": "new node creation",
+            "new_node_name": "wewe"
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "wewe to leftover",
+                "from": "wewe",
+                "to": "leftover",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 2460
+            }
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "ewqewq"
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "fsweewq"
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "fsweewq to cake",
+                "from": "fsweewq",
+                "to": "cake",
+                "text": "related to",
+                "toText": "1"
+            }
+        },
+        {
+            "type": "modify node",
+            "modify_node_info": {
+                "old_name": "fsweewq",
+                "new_name": "cake"
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "ewqewq to cake",
+                "from": "ewqewq",
+                "to": "cake",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 4027
+            }
+        }
+    ],
+    "resulting_path": "{ \"class\": \"resulting_path\",\n  \"copiesArrays\": true,\n  \"copiesArrayObjects\": true,\n  \"nodeDataArray\": [ \n{\"key\":\"ewqewq\", \"name\":\"ewqewq\", \"location\":{\"class\":\"go.Point\", \"x\":23.173955686272958, \"y\":-195.81584066995373}},\n{\"key\":\"cake\", \"name\":\"cake\", \"location\":{\"class\":\"go.Point\", \"x\":85.70104431372711, \"y\":-46.109162381804005}}\n ],\n  \"linkDataArray\": [ {\"key\":\"ewqewq to cake\", \"from\":\"ewqewq\", \"to\":\"cake\", \"text\":\"related to\", \"toText\":\"1\"} ]}",
+    "duration": "0:51",
+    "is_start_over": true
+}

@@ -1,0 +1,375 @@
+{%extends "layout.html" %}
+{% block body_script_extension %}
+<script src="https://unpkg.com/gojs/release/go-debug.js"></script>
+<script src="../static/go_js/EntityRelationDiagram.js"></script>
+
+<script>
+    jQuery.noConflict(); //define the JQuery and avoid conflict with go.js
+    var $ = go.GraphObject.make;
+</script>
+
+<!-- we need to import class, thus module type is required -->
+<script type="module">
+    import { Search } from "{{ url_for('static', filename='search/search.js') }}";
+    import Go_Display from "{{ url_for('static', filename='go_js/go_diagram.js') }}";
+    import { Go_Path } from "{{ url_for('static', filename='go_js/go_diagram.js') }}";
+    import Story from "{{url_for('static', filename='search/story.js')}}";
+
+    let display = new Go_Display("myGoDiv");
+    //let search = new Search(display, "#search-text", "#search-speech", "#search-submit", "#search-template", "#search-result");
+
+    var start_over = false;
+
+    var path = "{{path | safe }}";
+    console.log(path);
+    display.clean_canvas();
+    let go_path = new Go_Path(display, path);
+    var start_date = new Date();
+
+    // jQuery(window).on(function() {
+    //     console.log("hello world");
+    //     let go_path = new Go_Path(display, path);
+    // });
+
+    function millisToMinutesAndSeconds(millis) {
+        var minutes = Math.floor(millis / 60000);
+        var seconds = ((millis % 60000) / 1000).toFixed(0);
+        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    }
+
+    jQuery('#start-over-button').click(function () {
+        display.clean_canvas();
+        start_over = true;
+    });
+
+
+    // ad-hoc for debug
+    // document.querySelector("#workplace").addEventListener("click", () => display.connect());
+
+    jQuery("#submit-path-button").click(function () {
+        var uuid = jQuery(".dropdown-item.active").attr("id");
+
+        var modified_path_json = display.diagram.model.toJson();
+
+        var complete_date = new Date();
+
+        console.log("log send button called")
+
+        var whole_log_data = {
+            original_path: path,
+            operation_sequence: log_data,
+            resulting_path: display.diagram.model,
+            duration: millisToMinutesAndSeconds(complete_date - start_date),
+            is_start_over: start_over
+        }
+
+        console.log(whole_log_data);
+
+        jQuery.ajax({
+            url: "{{url_for('submit_log')}}",
+            data: JSON.stringify(whole_log_data),
+            contentType: "application/json;charset=UTF-8",
+            type: "POST",
+            success: (response) => {
+                console.log(response);
+            },
+            error: function (response) {
+                console.log("Error occurred when send json to backend server")
+            }
+        });
+    });
+
+    function render_pred_modal(result) {
+        var modal_body = document.getElementById("PredModalBody");
+        // clean up the previous content
+        modal_body.innerText = "";
+        let story_id = result.story_id;
+        let paths = result.paths;
+        let human_needs_pred = result.human_needs_pred;
+
+        //create story_id tag in modal body
+        let story_id_elem = document.createElement("p");
+        story_id_elem.innerHTML = "<strong>story id:</strong> " + story_id;
+        modal_body.append(story_id_elem);
+
+        let reasoning_path_label = document.createElement("p");
+        reasoning_path_label.innerHTML = "<strong>reasoning paths:</strong> <br>";
+        modal_body.append(reasoning_path_label);
+
+        for (var i = 0; i < paths.length; i++) {
+            let line = document.createElement("p");
+            line.classList.add("pred_paths_line");
+            line.textContent = "attention weight: " + paths[i].attention_weight + "; reasoning path: " + paths[i].reasoning_path;
+            modal_body.append(line);
+        }
+
+        let human_needs = document.createElement("p");
+        human_needs.innerHTML = "<strong>human_needs:</strong> " + result.human_needs_pred;
+        modal_body.append(human_needs);
+    }
+
+
+    jQuery(".dropdown-item").click(function () {
+        jQuery(".dropdown-item").removeClass("active");
+        var item_id = jQuery(this).attr("id");
+        let story = new Story(display, item_id, "story-display-zone");
+        story.fetch_story();
+        jQuery(this).addClass("active");
+    });
+
+</script>
+
+{% endblock body_script_extension %}
+
+{% block content %}
+<!-- <div id="search" class="col-3 search-content">
+    <h1>Concept Search</h1>
+
+    <div class="search-tool">
+        <form action="GET" id="search-form" class="row" onsubmit="return false;">
+            <input type="text" id="search-text" class="col-sm" autocomplete="off" placeholder="Your concept...">
+            <select id="search-speech" class="col-sm">
+                <option value="?">Unspecified</option>
+                <option value="n">Noun</option>
+                <option value="a">Adjective</option>
+                <option value="s">Adjective satellite</option>
+                <option value="v">Verb</option>
+                <option value="r">Adverb</option>
+                <option value="q">Q</option>
+            </select>
+            <input type="submit" value="Submit" id="search-submit" class="col-sm primary" style="margin: 4px;">
+        </form>
+    </div>
+
+    <section class="hidden">
+        <section id="search-template" class="card fluid">
+            <section class="section">
+                <h3>
+                    <span class="concept-text"></span>
+                    <code class="concept-speech"></code>
+                    <small class="concept-uri"></small>
+                </h3>
+            </section>
+
+            <section class="section concept-externals"></section>
+
+            <section class="section row">
+                <button class="col-sm button primary concept-button">Insert into knowledge graph</button>
+            </section>
+        </section>
+    </section>
+    <section id="search-result" class="expanded">
+    </section>
+</div> -->
+<div id="info-zone" class="col-4">
+    <div class="container">
+        <div id="story-display" class="row" style="margin-bottom: 20px;">
+            <div class="col mx-auto">
+                <div class="story-paragraph">
+                    <h3>Story:</h3>
+                    <p>Gina's friends all had new friendship bracelets.</p>
+                    <p>Everyone except Gina. </p>
+                    <p>The next day her friend May brought one for Gina. </p>
+                    <p>It was clearly made with the leftover threads. </p>
+                    <p>It was ugly orange and green, but Gina pretended to be grateful.</p>
+                    <b>Question: What is the human need that made Gina pretend to be grateful?</b>
+                </div>
+                <!-- <div class="story-question">
+                    <b>Question: Why are you so funny?</b>
+                </div> -->
+            </div>
+        </div>
+
+        <div id="sumbit-button-zone" class="row"
+            style="margin-top: 40px; display: block; margin-left: auto; margin-right: auto;">
+
+            <div class="col-8 mx-auto"
+                style="border: 2px solid black; border-radius: 8px; padding: 5px; text-align: center;">
+                <p>If you find the whole path is nonsensical, click button to create from scratch</p>
+                <button id="start-over-button" class="btn btn-primary">Create from scratch</a>
+            </div>
+        </div>
+
+        <div id="sumbit-button-zone" class="row"
+            style="margin-top: 40px; display: block; margin-left: auto; margin-right: auto;">
+
+            <div class="col-8 mx-auto">
+                <a id="submit-path-button" class="btn btn-outline-primary" href="{{url_for('survey')}}">Submit your
+                    modification</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myGoDiv" class="col-8 display" style="width: 1600px; height: 600px; background-color: #f6f6f6;"> </div>
+
+<!-- <div class="col-3" id="story-zone">
+
+    <div class="dropdown" id="story-select">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="storyDropdownMenu" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Select story
+        </button>
+        <div class="dropdown-menu" aria-labelledby="storyDropdownMenu">
+            <a class="dropdown-item" id="a2ddbb50-e45b-4ad3-becf-b2d8475172bf/2/I (myself)" href="#">Story 1</a>
+            <a class="dropdown-item" id="7148ffc4-0d04-4d9f-9286-ae7ae61a813a/4/Jervis" href="#">Story 2</a>
+            
+        </div>
+    </div>
+    <section id="story-display-zone"></section>
+
+</div> -->
+
+<!-- <div class="col-2" id="story_zone">
+    <span>Story:</span>
+    <p>Jon has a big math test in the morning.</p>
+    <p><strong> decided he didn't need to study.</strong></p>
+    <p>When he got to class, he felt confident.</p>
+    <p>His teacher gave out the test and he started filling out answers.</p>
+    <p>Jon was excited when he made an A.</p>
+    <br>
+    <p>'status', 'approval', 'tranquility', 'competition', 'health',
+         'family', 'romance', 'food', 'indep', 'power', 'order', 'curiosity', 'serenity',
+          'honor', 'belonging', 'contact', 'savings', 'idealism', 'rest'</p>
+</div> -->
+{% endblock content %}
+
+{% block widget_extension %}
+<!-- Node Modal -->
+<div class="modal fade" id="NodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modify Node Name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="Modal-node-name">Node Name: </span>
+                    </div>
+                    <input type="text" id="node-name-input" autocomplete="off" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="Close-Node-Button"
+                    data-dismiss="modal">Close</button>
+                <button type="button" id="Node-Save-Button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Node Addition Modal -->
+<div class="modal fade" id="NodeAdditionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Add Node</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="Modal-node-addition-name">New node Name: </span>
+                    </div>
+                    <input type="text" id="node-name-addition-input" autocomplete="off" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="Close-node-addition-button"
+                    data-dismiss="modal">Close</button>
+                <button type="button" id="Node-addition-save-button" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edge Add Modal -->
+<div class="modal fade" id="EdgeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Add Edge</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="Modal-edge-name">Target node name: </span>
+                    </div>
+                    <input type="text" id="edge-name-input" autocomplete="off" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="Edge-Save-Button" class="btn btn-primary">Add Edge</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edge Modification Modal -->
+<div class="modal fade" id="EdgeModificationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modify Edge Name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="Modal-edge-mod-name">New edge name: </span>
+                    </div>
+                    <input type="text" id="edge-name-mod-input" autocomplete="off" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="Edge-Save-Mod-Button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Prediction output Modal -->
+<div class="modal fade" id="PredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="predModalTitle">Prediction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="PredModalBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock widget_extension %}

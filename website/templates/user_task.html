@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container" style="display: inline-block; margin-bottom: 10px;">
+    <div class="row" style="display: inline-block;">
+        <div class="col">
+            <h3>Your task</h3>
+            <p>In the next page, you will be shown a story, AI human need prediction and several reasoning that AI made.
+                Please choose one of the AI reasoning to modify (i.e. replace, add, delete nodes/edges) so that the
+                modified reasoning can lead to a proper human need and
+                the reasoning itself will sound more rational to you. </p>
+
+            <b>Example:</b>
+            <p>In the prior story example: </p>
+            <div class="story-paragraph"
+                style="margin-bottom: 20px; border: 2px solid black; border-radius: 8px; display: inline-block; padding: 6px;">
+                <i class="font-family: 'Merriweather', serif;">Tom was driving his car.</i> <br>
+                <i class="font-family: 'Merriweather', serif;">He wanted to take a scenic way home.</i> <br>
+                <i class="font-family: 'Merriweather', serif;">He deliberately passed his exit.</i> <br>
+                <i class="font-family: 'Merriweather', serif;"> Tom saw many beautiful trees.</i> <br>
+                <i class="font-family: 'Merriweather', serif;"> Tom took the scenic way home.</i> <br>
+                <b>Question: What's human need that drives Tom to take the scenic way home?</b>
+            </div>
+            <p>AI makes a reasoning:</p>
+            <p style="border: 2px solid white; border-radius: 8px; display: inline-block; padding: 6px;"><b
+                    style="color: #efbbcf;">home</b> <i>related to</i> <b>rest</b> <i>related to</i>
+                <b style="color:#51adcf">calm</b></p>
+            <p>One possible modification is: </p>
+            <p style="border: 2px solid white; border-radius: 8px; display: inline-block; padding: 6px;"><b
+                    style="color: #efbbcf;">scenic</b> <i>related to</i> <b>peace</b> <i>related to</i>
+                <b style="color:#51adcf">rest</b></p>
+            <p>Note that if you find the original reasoning is totally nonsensical, you can create a rational one from
+                scratch. Besides, the defualt relation type of newly created edge is "related to", you can change it
+                with "modify edge" operation if finding the default type is improper. For relation type, it is
+                preferable to use the offered types, but self-created types are allowed if you don't find proper types
+                to use.</p>
+            <p>Please click "Next" to proceed to task.</p>
+        </div>
+    </div>
+    <div class="row" style="height: 10vh;">
+        <div class="col" style="display: inline-block; margin-left: auto; margin-right: auto;">
+            <a class="btn btn-outline-primary" href="{{url_for('path_selection')}}">Next</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

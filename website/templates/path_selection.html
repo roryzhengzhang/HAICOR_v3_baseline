@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container" style="display: inline-block; margin-bottom: 10px;">
+    <div class="row" style=" display: inline-block;">
+        <div class="col">
+            <h3>Story: </h3>
+            <div class="story-paragraph">
+                <p>Gina's friends all had new friendship bracelets.</p>
+                <p>Everyone except Gina. </p>
+                <p>The next day her friend May brought one for Gina. </p>
+                <p>It was clearly made with the <b style="color: #efbbcf;">leftover</b> threads. </p>
+                <p>It was ugly orange and green, but Gina <b style="color: #8675a9;">pretended</b> to be grateful.</p>
+            </div>
+            <b>Question: What is the human need that made Gina pretend to be grateful?</b>
+        </div>
+
+    </div>
+</div>
+
+<div class="container" style="margin-bottom: 20px;">
+    <div class="row">
+        <div class="col">
+            <h3 style="margin-bottom: 10px;">AI reasoning</h3>
+            <p style="margin-bottom: 10px;">AI predicts <b style="font-size: medium; color: teal;">rest</b> as underlying human need. Besides, he produces
+                several reasoning to tackle this question along with the corresponding confidence score:</p>
+        </div>
+    </div>
+    <div class="row candidate-path" style="margin-bottom: 5px;">
+        <div class="col-7" style="display: inline;">
+            <p><b style="color: #efbbcf;">leftover</b> <i>related to</i> <b>remaining</b> <i>synonym</i> <b
+                    style="color:#51adcf">rest</b></p>
+
+        </div>
+        <div class="col-2">
+            <p style="color: #931a25;">0.39</p>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-outline-primary path-button" path_index="0"
+                href="{{url_for('index', path_index=0)}}">Select this
+                path to modify</a>
+        </div>
+    </div>
+    <div class="row candidate-path" style="margin-bottom: 5px;">
+        <div class="col-7">
+            <p><b style="color: #efbbcf;">leftover</b> <i>is a</i> <b>remainder</b> <i>related to</i> <b>possession</b>
+                <i>related to</i> <b style="color:#51adcf">belonging</b></p>
+        </div>
+        <div class="col-2">
+            <p style="color: #931a25;">0.3107</p>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-outline-primary path-button" path_index="1"
+                href="{{url_for('index', path_index=1)}}">Select this
+                path to modify</a>
+        </div>
+    </div>
+    <div class="row candidate-path" style="margin-bottom: 5px;">
+        <div class="col-7">
+            <p><b style="color: #efbbcf;">leftover</b> <i>related to</i> <b>reserve</b> <i>related to</i> <b>ration</b>
+                <i>related to</i> <b style="color:#51adcf">food</b></p>
+        </div>
+        <div class="col-2">
+            <p style="color: #931a25;">0.297</p>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-outline-primary path-button" path_index="2"
+                href="{{url_for('index', path_index=2)}}">Select this
+                path to modify</a>
+        </div>
+    </div>
+    <div class="row candidate-path" style="margin-bottom: 5px;">
+        <div class="col-7">
+            <p><b style="color: #8675a9;">pretend</b> <i>MotivatedByGoal</i> <b>playing</b> <i>used for</i>
+                <b>competing</b> <i>causes</i> <b style="color:#51adcf">competition</b></p>
+        </div>
+        <div class="col-2">
+            <p style="color: #931a25;">0.0000005</p>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-outline-primary path-button" path_index="3"
+                href="{{url_for('index', path_index=3)}}">Select this
+                path to modify</a>
+        </div>
+    </div>
+    <div class="row candidate-path" style="margin-bottom: 5px;">
+        <div class="col-7">
+            <p><b style="color: #8675a9;">pretend</b> <i>MotivatedByGoal</i> <b>actor</b> <i>is a</i> <b>person</b>
+                <i>desires</i> <b style="color:#51adcf">independent</b></p>
+        </div>
+        <div class="col-2">
+            <p style="color: #931a25;">0.0000003</p>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-outline-primary path-button" path_index="4"
+                href="{{url_for('index', path_index=4)}}">Select this
+                path to modify</a>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <h3 style="text-align: center;">Mini survey</h3>
+            <form action="{{url_for('form_submit')}}" method="POST">
+                <p>1. How rational is the AI reasoning in your opinion?</p>
+                <input type="radio" id="Very_irrational" name="rationality" value="Very_irrational">
+                <label for="male">Very irrational</label><br>
+                <input type="radio" id="Somewhat_irrational" name="rationality" value="Somewhat_irrational">
+                <label for="female">Somewhat irrational</label><br>
+                <input type="radio" id="Hard_to_tell" name="rationality" value="Hard_to_tell">
+                <label for="other">Hard to evaluate the rationality</label> <br>
+                <input type="radio" id="Somewhat_rational" name="rationality" value="Somewhat_rational">
+                <label for="female">Somewhat irrational</label><br>
+                <input type="radio" id="Very_rational" name="rationality" value="Very_rational">
+                <label for="other">Very rational</label>
+
+                <br>
+
+                <p>2. How difficult is it for you to modify AI reasoning into a rational one with this graphical
+                    interaction?</p>
+                <input type="radio" id="Very_difficult" name="difficulty" value="Very_difficult">
+                <label for="male">Very difficult</label><br>
+                <input type="radio" id="Somewhat_difficult" name="difficulty" value="Somewhat_difficult">
+                <label for="female">Somewhat difficult</label><br>
+                <input type="radio" id="" name="difficulty" value="Hard_to_tell">
+                <label for="other">Hard to tell the difficulty</label> <br>
+                <input type="radio" id="Somewhat_easy" name="difficulty" value="Somewhat_easy">
+                <label for="female">Somewhat easy</label><br>
+                <input type="radio" id="Very_easy" name="difficulty" value="Very_easy">
+                <label for="other">Very easy</label>
+
+                <br>
+                <p>3. Could you suggest some features that this system should have in the future?</p>
+                <textarea name="feature_suggest" rows="8" cols="70"></textarea>
+
+                <br>
+                <p>4. Could you point out what difficulties that you face as modifying AI reasoning?</p>
+                <textarea name="modify_difficulty_comment" rows="8" cols="70"></textarea>
+
+                <br>
+                <p>5. Do you have any feedback on the usability of this system?</p>
+                <textarea name="usability_feedback" rows="8" cols="70"></textarea>
+                <br>
+                <input type="submit" value="Submit" class="btn btn-primary"></input>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content%}

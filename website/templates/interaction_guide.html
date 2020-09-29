@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container" style="display: inline-block; margin-bottom: 10px;">
+    <div class="row" style="display: inline-block;">
+        <div class="col">
+            <h3>Operation introduction</h3>
+            <div style="margin-bottom: 10px; ">
+                <p>You will see a user interface as below:</p>
+                <img id="entire_UI_screenshot" width="50%" height="50%" src={{entire_ui_screenshot}}>
+            </div>
+
+            <p>This interaction zone is dragable and zoomable, and it allows you to perform the following basic
+                operations:</p>
+
+            <div class="row" style="margin-bottom: 10px; border: 2px solid black; border-radius: 8px; height: 30vh;">
+                <div class="col-6">
+                    <b>Create new node (concept): </b>
+                    <p>You can create a new node by right clicking anywhere on canvas except nodes and edges</p>
+                </div>
+                <div class="col-6">
+                    <img id="add_node_screenshot" width="70%" height="40%" src={{add_node_screenshot}}>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 10px; border: 2px solid black; border-radius: 8px;">
+                <div class="col-6">
+                    <b>Modify exisitng node (change its name): </b>
+                    <p>You can modify an existing node by right clicking it and selecting "modify node"</p>
+
+                    <b>Delete node: </b>
+                    <p>You can delete an existing node by right clicking it and selecting "delete node"</p>
+
+                    <b>Create new edge between concepts: </b>
+                    <p>You can create a new edge by right clicking the starting node and selecting "create link". Then
+                        you need type in the name of ending node in the pop-up</p>
+                </div>
+                <div class="col-6">
+                    <img id="node_menu_screenshot" width="100%" height="100%" src={{node_menu_screenshot}}>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 10px; border: 2px solid black; border-radius: 8px;">
+                <div class="col-6">
+                    <b>Delete edge: </b>
+                    <p>You can delete an existing edge by right clicking it and selecting "delete edge"</p>
+
+                    <b>Modify exisitng edge (change its relation type): </b>
+                    <p>You can modify an existing edge by right clicking it and selecting "modify relation type"</p>
+                </div>
+                <div class="col-6">
+                    <img id="edge_menu_screenshot" width="100%" height="100%" src={{edge_menu_screenshot}}>
+                </div>
+            </div>
+
+            <div class="row" style="height: 10vh;">
+                <div class="col" style="display: inline-block; margin-left: auto; margin-right: auto;">
+                    <a class="btn btn-outline-primary" href="{{url_for('user_task')}}">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block head_extension %}
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+{% endblock head_extension %}
+
+{% block content %}
+<div class="container" style="display: inline-block; margin-bottom: 10px;">
+    <div class="row" style=" display: inline-block;">
+        <div class="col">
+            <div class="study-intro">
+                <h3>Study introduction</h3>
+                <p>The primary goal of this study is to test the usability of basline human-AI collborative reasoning
+                    system. In this study, you will help AI to improve his commonsense reasoning on a story
+                    understanding question so that the resulting reasoning will sound more <b>rational</b> in your
+                    opinion. Our system
+                    provides a basic user interface that allows you to modify the AI reasoning by virtue of graphical
+                    manipulations and we wonder how effective this UI can facilitate your adventure with AI reasoning.
+                </p>
+            </div>
+
+            <div class="AI-task">
+                <h3>What's AI reasoning for?</h3>
+                <p>In this study, our AI craves for reasoning about the fundamental human needs underlying a character's
+                    behavior in a story. For example, when see the following story:</p>
+                <div class="story-paragraph"
+                    style="margin-bottom: 20px; border: 2px solid black; border-radius: 8px; display: inline-block; padding: 6px;">
+                    <i class="font-family: 'Merriweather', serif;">Tom was driving his car.</i> <br>
+                    <i class="font-family: 'Merriweather', serif;">He wanted to take a scenic way home.</i> <br>
+                    <i class="font-family: 'Merriweather', serif;">He deliberately passed his exit.</i> <br>
+                    <i class="font-family: 'Merriweather', serif;"> Tom saw many beautiful trees.</i> <br>
+                    <i class="font-family: 'Merriweather', serif;"> Tom took the scenic way home.</i> <br>
+                    <b>Question: What's human need that drives Tom to take the scenic way home?</b>
+                </div>
+
+                <p>Our AI will select a likely human need from a given set. Moreover, he will present you with a
+                    reasoning that justifies his choice. In the above case, he may predict "calm" as the fundamental
+                    human need behind Tom's choice of route (please click "human needs" button on banner to see the
+                    whole set
+                    of human needs). Plus, he may
+                    justify his choice as: </p>
+                <p style="border: 2px solid white; border-radius: 8px; display: inline-block; padding: 6px;"><b
+                        style="color: #efbbcf;">home</b> <i>related to</i> <b>rest</b> <i>related to</i>
+                    <b style="color:#51adcf">calm</b></p>
+                <p>Here <b>bold parts</b> are concepts that AI knows, and <i>Italic parts</i> represent the relation
+                    between concepts (please click "relation interpretation" button on banner to see the interprtation
+                    of relations in natural language). Notice that AI tried to find a confident path from a story
+                    concept (<b style="color:burlywood">home</b>) to one of human needs (<b
+                        style="color: darkcyan;">serenity</b>). However, the prediction and rationality of his reasoning
+                    may be flimsy to you.
+                    <b>Your job</b> is to improve his flawed reasoning by (1) deleting inappropriate concepts, (2)
+                    replacing
+                    inappropriate concepts with proper ones or (3) adding new concepts so that the resulting reasoning
+                    will be more rational from your point of view.</p>
+                <p>Please click "NEXT" to see the modification guide.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="display: inline-block; margin-left: auto; margin-right: auto;">
+            <a class="btn btn-outline-primary" href="{{url_for('interaction_guide')}}">Next</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
