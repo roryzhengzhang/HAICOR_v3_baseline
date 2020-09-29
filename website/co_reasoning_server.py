@@ -17,7 +17,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 # @app.route('/interaction_page')
 @app.route('/modification')
-def modification_page():
+def co_reasoning_page():
     path_index = request.args['path_index']
     paths = [
             {
