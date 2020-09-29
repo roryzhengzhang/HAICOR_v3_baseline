@@ -123,37 +123,37 @@ def path_json():
     return jsonify(response_string=str(argument_nodes))
 
 
-@app.route('/introduction')
-def introduction():
-    resp = make_response(render_template('introduction.html', css=url_for('static', filename="css/main.css"), 
-    image_1=url_for('static', filename="interaction_illustration.JPG"),
-    image_2=url_for('static', filename="general_explanation_chart.JPG"),
-    image_3=url_for('static', filename="human_needs_explanation.JPG")))
-    return resp
+# @app.route('/introduction')
+# def introduction():
+#     resp = make_response(render_template('introduction.html', css=url_for('static', filename="css/main.css"), 
+#     image_1=url_for('static', filename="interaction_illustration.JPG"),
+#     image_2=url_for('static', filename="general_explanation_chart.JPG"),
+#     image_3=url_for('static', filename="human_needs_explanation.JPG")))
+#     return resp
 
-@app.route('/human_needs_explanation')
-def human_needs_explanation():
-    resp = make_response(render_template('human_needs_explanation.html', css=url_for('static', filename="css/main.css"),  img_source=url_for('static', filename="human_needs_explanation.JPG")))
-    return resp
+# @app.route('/human_needs_explanation')
+# def human_needs_explanation():
+#     resp = make_response(render_template('human_needs_explanation.html', css=url_for('static', filename="css/main.css"),  img_source=url_for('static', filename="human_needs_explanation.JPG")))
+#     return resp
 
-@app.route('/commonsense_explanation')
-def commonsense_explanation():
-    resp = make_response(render_template('commonsense_explanation.html', css=url_for('static', filename="css/main.css"),  img_source=url_for('static', filename="sample_kg.JPG"), 
-    further_step_image=url_for('static', filename="step-by-step image.png")))
-    return resp
+# @app.route('/commonsense_explanation')
+# def commonsense_explanation():
+#     resp = make_response(render_template('commonsense_explanation.html', css=url_for('static', filename="css/main.css"),  img_source=url_for('static', filename="sample_kg.JPG"), 
+#     further_step_image=url_for('static', filename="step-by-step image.png")))
+#     return resp
 
-@app.route('/story_example')
-def story_example():
-    resp = make_response(render_template('story_example.html', css=url_for('static', filename="css/main.css"),  img_source=url_for('static', filename="story_example.JPG")))
-    return resp
+# @app.route('/story_example')
+# def story_example():
+#     resp = make_response(render_template('story_example.html', css=url_for('static', filename="css/main.css"),  img_source=url_for('static', filename="story_example.JPG")))
+#     return resp
 
-@app.route('/visualized_explanation')
-def visualized_exp():
-    resp = make_response(render_template('visualized_explanation.html', css=url_for('static', filename="css/main.css"), 
-     img_source=url_for('static', filename="visualized_sample.JPG"),
-     img_star_source=url_for('static', filename="star_chart.JPG"),
-     img_bar_source=url_for('static', filename="path_influence_chart.JPG")))
-    return resp
+# @app.route('/visualized_explanation')
+# def visualized_exp():
+#     resp = make_response(render_template('visualized_explanation.html', css=url_for('static', filename="css/main.css"), 
+#      img_source=url_for('static', filename="visualized_sample.JPG"),
+#      img_star_source=url_for('static', filename="star_chart.JPG"),
+#      img_bar_source=url_for('static', filename="path_influence_chart.JPG")))
+#     return resp
 
 @app.route('/test')
 def test():
