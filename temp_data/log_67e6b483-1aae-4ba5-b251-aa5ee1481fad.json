@@ -1,0 +1,175 @@
+{
+    "original_path": "pretend motivated by goal actor is a person desires independent",
+    "operation_sequence": [
+        {
+            "type": "delete node",
+            "delete_node": "independent"
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "Conceal "
+        },
+        {
+            "type": "delete link",
+            "delete_link": {
+                "key": "actor to person",
+                "from": "actor",
+                "to": "person",
+                "text": "is a",
+                "toText": "1",
+                "__gohashid": 833
+            }
+        },
+        {
+            "type": "delete node",
+            "delete_node": "person"
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "actor to Conceal",
+                "from": "actor",
+                "to": "Conceal",
+                "text": "related to",
+                "toText": "1"
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "Conceal  to person",
+                "from": "Conceal ",
+                "to": "person",
+                "text": "related to",
+                "toText": "1"
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "actor to Concea;",
+                "from": "actor",
+                "to": "Concea;",
+                "text": "related to",
+                "toText": "1"
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "Conceal  to actor",
+                "from": "Conceal ",
+                "to": "actor",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 5986
+            }
+        },
+        {
+            "type": "modify link",
+            "modify_link_info": {
+                "key": "Conceal  to actor",
+                "from": "Conceal ",
+                "to": "actor",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 5986
+            }
+        },
+        {
+            "type": "modify link",
+            "modify_link_info": {
+                "key": "pretend to actor",
+                "from": "pretend",
+                "to": "actor",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 777
+            }
+        },
+        {
+            "type": "modify link",
+            "modify_link_info": {
+                "key": "pretend to actor",
+                "from": "pretend",
+                "to": "actor",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 777
+            }
+        },
+        {
+            "type": "delete link",
+            "delete_link": {
+                "key": "Conceal  to actor",
+                "from": "Conceal ",
+                "to": "actor",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 5986
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "actor to conceal",
+                "from": "actor",
+                "to": "conceal",
+                "text": "related to",
+                "toText": "1"
+            }
+        },
+        {
+            "type": "modify node",
+            "modify_node_info": {
+                "old_name": "Conceal ",
+                "new_name": "conceal "
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "actor to conceal",
+                "from": "actor",
+                "to": "conceal",
+                "text": "related to",
+                "toText": "1"
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "actor to conceal",
+                "from": "actor",
+                "to": "conceal",
+                "text": "related to",
+                "toText": "1"
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "conceal  to actor",
+                "from": "conceal ",
+                "to": "actor",
+                "text": "motivated to",
+                "toText": "1",
+                "__gohashid": 7688
+            }
+        },
+        {
+            "type": "modify link",
+            "modify_link_info": {
+                "key": "conceal  to actor",
+                "from": "conceal ",
+                "to": "actor",
+                "text": "motivated to",
+                "toText": "1",
+                "__gohashid": 7688
+            }
+        }
+    ],
+    "resulting_path": "{ \"class\": \"resulting_path\",\n  \"copiesArrays\": true,\n  \"copiesArrayObjects\": true,\n  \"nodeDataArray\": [ \n{\"key\":\"pretend\", \"name\":\"pretend\", \"location\":{\"class\":\"go.Point\", \"x\":-189.7260971328431, \"y\":166.1300074821306}},\n{\"key\":\"actor\", \"name\":\"actor\", \"location\":{\"class\":\"go.Point\", \"x\":-65.49058500563814, \"y\":18.993379178316793}},\n{\"key\":\"conceal \", \"name\":\"conceal \", \"location\":{\"class\":\"go.Point\", \"x\":125.95175997078363, \"y\":-8.017328261408453}}\n ],\n  \"linkDataArray\": [ \n{\"key\":\"pretend to actor\", \"from\":\"pretend\", \"to\":\"actor\", \"text\":\"related to\", \"toText\":\"1\"},\n{\"key\":\"conceal  to actor\", \"from\":\"conceal \", \"to\":\"actor\", \"text\":\"motivated to\", \"toText\":\"1\"}\n ]}",
+    "duration": "4:27",
+    "is_start_over": false
+}

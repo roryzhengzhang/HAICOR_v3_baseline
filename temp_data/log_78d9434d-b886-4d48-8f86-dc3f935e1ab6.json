@@ -1,0 +1,7 @@
+{
+    "original_path": "leftover related to remaining synonym rest",
+    "operation_sequence": [],
+    "resulting_path": "{ \"class\": \"resulting_path\",\n  \"copiesArrays\": true,\n  \"copiesArrayObjects\": true,\n  \"nodeDataArray\": [ \n{\"key\":\"leftover\", \"name\":\"leftover\", \"location\":{\"class\":\"go.Point\", \"x\":1.339407296979083, \"y\":-129.79073725855397}},\n{\"key\":\"remaining\", \"name\":\"remaining\", \"location\":{\"class\":\"go.Point\", \"x\":81.92897644761211, \"y\":19.953949305709795}},\n{\"key\":\"rest\", \"name\":\"rest\", \"location\":{\"class\":\"go.Point\", \"x\":-81.74784300549514, \"y\":121.18017951184265}}\n ],\n  \"linkDataArray\": [ \n{\"key\":\"leftover to remaining\", \"from\":\"leftover\", \"to\":\"remaining\", \"text\":\"related to\", \"toText\":\"1\"},\n{\"key\":\"remaining to rest\", \"from\":\"remaining\", \"to\":\"rest\", \"text\":\"synonym\", \"toText\":\"1\"}\n ]}",
+    "duration": "0:13",
+    "is_start_over": false
+}

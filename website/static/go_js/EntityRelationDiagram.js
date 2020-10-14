@@ -91,8 +91,8 @@ myDiagram.nodeTemplate =
         },
         new go.Binding("text", "name")),
       // the collapse/expand button
-      $("PanelExpanderButton", "LIST",  // the name of the element whose visibility this button toggles
-        { row: 0, alignment: go.Spot.TopRight }),
+      // $("PanelExpanderButton", "LIST",  // the name of the element whose visibility this button toggles
+      //   { row: 0, alignment: go.Spot.TopRight }),
       // the list of Panels, each showing an attribute
       $(go.Panel, "Vertical",
         {
@@ -335,7 +335,7 @@ myDiagram.linkTemplate = $(go.Link,
     {
       textAlign: "center",
       font: "bold 14px sans-serif",
-      stroke: "#1967B3",
+      stroke: "#de4463",
     },
     new go.Binding("text", "text"))
 );

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_wo_banner.html" %}
 
 {% block content %}
 <div class="container">
@@ -14,14 +14,28 @@
                 <input type="radio" id="Hard_to_tell" name="rationality" value="Hard_to_tell">
                 <label for="other">Hard to evaluate the rationality</label> <br>
                 <input type="radio" id="Somewhat_rational" name="rationality" value="Somewhat_rational">
-                <label for="female">Somewhat irrational</label><br>
+                <label for="female">Somewhat rational</label><br>
                 <input type="radio" id="Very_rational" name="rationality" value="Very_rational">
                 <label for="other">Very rational</label>
 
                 <br>
 
-                <p>2. How difficult is it for you to modify AI reasoning into a rational one with this graphical
-                    interaction?</p>
+                <p>2. How easy is it for you to use the graphical tool?</p>
+                <input type="radio" id="Very_difficult" name="difficulty" value="Very_difficult">
+                <label for="male">Very difficult</label><br>
+                <input type="radio" id="Somewhat_difficult" name="difficulty" value="Somewhat_difficult">
+                <label for="female">Somewhat difficult</label><br>
+                <input type="radio" id="" name="difficulty" value="Hard_to_tell">
+                <label for="other">Hard to tell the difficulty</label> <br>
+                <input type="radio" id="Somewhat_easy" name="difficulty" value="Somewhat_easy">
+                <label for="female">Somewhat easy</label><br>
+                <input type="radio" id="Very_easy" name="difficulty" value="Very_easy">
+                <label for="other">Very easy</label>
+
+                
+                <br>
+
+                <p>3. How difficult is it for you to modify the AI reasoning into a rational one (or create a rational reasoning from scratch)?</p>
                 <input type="radio" id="Very_difficult" name="difficulty" value="Very_difficult">
                 <label for="male">Very difficult</label><br>
                 <input type="radio" id="Somewhat_difficult" name="difficulty" value="Somewhat_difficult">
@@ -34,15 +48,15 @@
                 <label for="other">Very easy</label>
 
                 <br>
-                <p>3. Could you suggest some features that this system should have in the future?</p>
+                <p>4. Do you have any suggested features that you think system should implement in the future?</p>
                 <textarea name="feature_suggest" rows="8" cols="70"></textarea>
 
                 <br>
-                <p>4. Could you point out what difficulties that you face as modifying AI reasoning?</p>
+                <p>5. If you encounter any difficulty as modifying AI reasoning, could you briefly state what it is?</p>
                 <textarea name="modify_difficulty_comment" rows="8" cols="70"></textarea>
 
                 <br>
-                <p>5. Do you have any feedback on the usability of this system?</p>
+                <p>6. Do you have any feedback on the usability of this system?</p>
                 <textarea name="usability_feedback" rows="8" cols="70"></textarea>
                 <br>
                 <input type="submit" value="Submit" class="btn btn-primary"></input>

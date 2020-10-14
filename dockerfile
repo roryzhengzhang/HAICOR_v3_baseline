@@ -1,7 +1,7 @@
 FROM python:3.8-buster
 
 ENV FLASK_APP="website:app"
-ENV DATA_DIRECTORY="/website/data"
+ENV DATA_DIRECTORY="/webstie/data"
 
 #zheng_website will expose as 80 port in docker host
 EXPOSE 5000

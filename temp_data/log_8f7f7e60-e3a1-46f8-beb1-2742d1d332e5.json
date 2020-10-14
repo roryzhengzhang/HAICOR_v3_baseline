@@ -1,0 +1,15 @@
+{
+    "original_path": "leftover related to remaining synonym rest",
+    "operation_sequence": [
+        {
+            "type": "modify node",
+            "modify_node_info": {
+                "old_name": "rest",
+                "new_name": "belonging"
+            }
+        }
+    ],
+    "resulting_path": "{ \"class\": \"resulting_path\",\n  \"copiesArrays\": true,\n  \"copiesArrayObjects\": true,\n  \"nodeDataArray\": [ \n{\"key\":\"leftover\", \"name\":\"leftover\", \"location\":{\"class\":\"go.Point\", \"x\":12.020614777508145, \"y\":-128.50779285765785}},\n{\"key\":\"remaining\", \"name\":\"remaining\", \"location\":{\"class\":\"go.Point\", \"x\":77.20134091774081, \"y\":21.4938187287645}},\n{\"key\":\"belonging\", \"name\":\"belonging\", \"location\":{\"class\":\"go.Point\", \"x\":-89.45041711826416, \"y\":118.09964787256989}}\n ],\n  \"linkDataArray\": [ \n{\"key\":\"leftover to remaining\", \"from\":\"leftover\", \"to\":\"remaining\", \"text\":\"related to\", \"toText\":\"1\"},\n{\"key\":\"remaining to rest\", \"from\":\"remaining\", \"to\":\"belonging\", \"text\":\"synonym\", \"toText\":\"1\"}\n ]}",
+    "duration": "1:03",
+    "is_start_over": false
+}

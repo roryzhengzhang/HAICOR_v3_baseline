@@ -1,0 +1,170 @@
+{
+    "original_path": "pretend motivated by goal playing used for competing causes competition",
+    "operation_sequence": [
+        {
+            "type": "new node creation",
+            "new_node_name": "grateful"
+        },
+        {
+            "type": "delete node",
+            "delete_node": "grateful"
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "pretended"
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "approval"
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "acceptance"
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "acceptance to pretended",
+                "from": "acceptance",
+                "to": "pretended",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 3417
+            }
+        },
+        {
+            "type": "delete link",
+            "delete_link": {
+                "key": "acceptance to pretended",
+                "from": "acceptance",
+                "to": "pretended",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 3417
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "acceptance to pretended",
+                "from": "acceptance",
+                "to": "pretended",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 4034
+            }
+        },
+        {
+            "type": "modify link",
+            "modify_link_info": {
+                "key": "acceptance to pretended",
+                "from": "acceptance",
+                "to": "pretended",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 4034
+            }
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "fake"
+        },
+        {
+            "type": "delete node",
+            "delete_node": "acceptance"
+        },
+        {
+            "type": "delete node",
+            "delete_node": "pretended"
+        },
+        {
+            "type": "delete node",
+            "delete_node": "fake"
+        },
+        {
+            "type": "delete node",
+            "delete_node": "approval"
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "pretended"
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "ignore"
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "pretended to ignore",
+                "from": "pretended",
+                "to": "ignore",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 5573
+            }
+        },
+        {
+            "type": "modify link",
+            "modify_link_info": {
+                "key": "pretended to ignore",
+                "from": "pretended",
+                "to": "ignore",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 5573
+            }
+        },
+        {
+            "type": "modify link",
+            "modify_link_info": {
+                "key": "pretended to ignore",
+                "from": "pretended",
+                "to": "ignore",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 5573
+            }
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "approval"
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "ignore to approval",
+                "from": "ignore",
+                "to": "approval",
+                "text": "motivated by goal",
+                "toText": "1",
+                "__gohashid": 6635
+            }
+        },
+        {
+            "type": "modify link",
+            "modify_link_info": {
+                "key": "ignore to approval",
+                "from": "ignore",
+                "to": "approval",
+                "text": "motivated by goal",
+                "toText": "1",
+                "__gohashid": 6635
+            }
+        },
+        {
+            "type": "modify link",
+            "modify_link_info": {
+                "key": "ignore to approval",
+                "from": "ignore",
+                "to": "approval",
+                "text": "motivated by goal",
+                "toText": "1",
+                "__gohashid": 6635
+            }
+        }
+    ],
+    "resulting_path": "{ \"class\": \"resulting_path\",\n  \"copiesArrays\": true,\n  \"copiesArrayObjects\": true,\n  \"nodeDataArray\": [ \n{\"key\":\"pretended\", \"name\":\"pretended\", \"location\":{\"class\":\"go.Point\", \"x\":-215.35939667043797, \"y\":-206.5897256554727}},\n{\"key\":\"ignore\", \"name\":\"ignore\", \"location\":{\"class\":\"go.Point\", \"x\":-80.31086915111128, \"y\":-61.478341417625956}},\n{\"key\":\"approval\", \"name\":\"approval\", \"location\":{\"class\":\"go.Point\", \"x\":107.68589082154875, \"y\":-154.2913079269012}}\n ],\n  \"linkDataArray\": [ \n{\"key\":\"pretended to ignore\", \"from\":\"pretended\", \"to\":\"ignore\", \"text\":\"related to\", \"toText\":\"1\"},\n{\"key\":\"ignore to approval\", \"from\":\"ignore\", \"to\":\"approval\", \"text\":\"motivated by goal\", \"toText\":\"1\"}\n ]}",
+    "duration": "10:47",
+    "is_start_over": true
+}

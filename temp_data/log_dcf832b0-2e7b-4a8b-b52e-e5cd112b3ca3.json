@@ -1,0 +1,7 @@
+{
+    "original_path": "leftover is a remainder related to possession related to belonging",
+    "operation_sequence": [],
+    "resulting_path": "{ \"class\": \"resulting_path\",\n  \"copiesArrays\": true,\n  \"copiesArrayObjects\": true,\n  \"nodeDataArray\": [ \n{\"key\":\"leftover\", \"name\":\"leftover\", \"location\":{\"class\":\"go.Point\", \"x\":-96.18630692766408, \"y\":-86.89974256290171}},\n{\"key\":\"remainder\", \"name\":\"remainder\", \"location\":{\"class\":\"go.Point\", \"x\":84.75905707148745, \"y\":73.66858905353011}},\n{\"key\":\"possession\", \"name\":\"possession\", \"location\":{\"class\":\"go.Point\", \"x\":109.49505963770416, \"y\":-51.99231278679691}},\n{\"key\":\"belonging\", \"name\":\"belonging\", \"location\":{\"class\":\"go.Point\", \"x\":-141.1030106010293, \"y\":70.72609118244556}}\n ],\n  \"linkDataArray\": [ \n{\"key\":\"leftover to remainder\", \"from\":\"leftover\", \"to\":\"remainder\", \"text\":\"is a\", \"toText\":\"1\"},\n{\"key\":\"remainder to possession\", \"from\":\"remainder\", \"to\":\"possession\", \"text\":\"related to\", \"toText\":\"1\"},\n{\"key\":\"possession to belonging\", \"from\":\"possession\", \"to\":\"belonging\", \"text\":\"related to\", \"toText\":\"1\"}\n ]}",
+    "duration": "0:10",
+    "is_start_over": false
+}

@@ -1,15 +1,13 @@
-{% extends "layout.html" %}
+{% extends "layout_wo_banner.html" %}
 
 {% block content %}
 <div class="container" style="display: inline-block; margin-bottom: 10px;">
     <div class="row" style="display: inline-block;">
         <div class="col">
             <h3>Your task</h3>
-            <p>In the next page, you will be shown a story, AI human need prediction and several reasoning that AI made.
+            <p>In the next page, you will be shown (1) a pair of story and question, (2) answer predicted by AI and (3) a set of reasoning that AI draws to justify his answer.
                 Please choose one of the AI reasoning to modify (i.e. replace, add, delete nodes/edges) so that the
-                modified reasoning can lead to a proper human need and
-                the reasoning itself will sound more rational to you. </p>
-
+                modified reasoning can demonstrate AI how to draw a rational reasoning from story context to a plausible answer in the given case.</p>
             <b>Example:</b>
             <p>In the prior story example: </p>
             <div class="story-paragraph"
@@ -30,9 +28,9 @@
                     style="color: #efbbcf;">scenic</b> <i>related to</i> <b>peace</b> <i>related to</i>
                 <b style="color:#51adcf">rest</b></p>
             <p>Note that if you find the original reasoning is totally nonsensical, you can create a rational one from
-                scratch. Besides, the defualt relation type of newly created edge is "related to", you can change it
-                with "modify edge" operation if finding the default type is improper. For relation type, it is
-                preferable to use the offered types, but self-created types are allowed if you don't find proper types
+                scratch. Besides, the defualt relation type of newly created edge is "related to", you can change the type
+                with "modify edge" operation. For relation type, it is
+                preferable to use the offered types, but self-created types are allowable if you don't find proper candidate types
                 to use.</p>
             <p>Please click "Next" to proceed to task.</p>
         </div>

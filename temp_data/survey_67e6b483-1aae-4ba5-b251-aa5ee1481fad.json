@@ -1,0 +1,7 @@
+{
+    "rationality": "Hard_to_tell",
+    "difficulty": "Somewhat_easy",
+    "feature_suggest": "Looks good!",
+    "modify_difficulty_comment": "Humans aren't perfect at reasoning either so for more complex situations, it might be difficult to train AI reasoning since people themselves don't agree or reason \"correctly\" (if there is even such a thing) themselves. ",
+    "usability_feedback": "Is there only a specific way the arrows can go? I noticed that i couldn't change the direction of the arrows even when i created the link from both nodes each time. It only got created for the node which didn't have any other links associated.\r\n\r\nFor this feedback system, we can either pick answers for 2 or 3."
+}

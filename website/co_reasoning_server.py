@@ -77,11 +77,16 @@ def survey():
     resp = make_response(render_template('survey.html', css=url_for('static', filename="css/main.css")))
     return resp
 
+@app.route('/test_page')
+def test_page():
+    resp = make_response(render_template('test_page.html', css=url_for('static', filename="css/main.css")))
+    return resp
+
 @app.route('/submit_log', methods=["POST"])
 def submit_log():
     #store the json file of log data locally
     log_data = request.get_json()
-    with open("interaction_log/log_{}.json".format(session['uid']), "w") as f:
+    with open("data/log_{}.json".format(session['uid']), "w") as f:
         print("write log: {}".format("log_"+str(session['uid'])+".json"))
         json.dump(log_data, f)
     
@@ -91,7 +96,7 @@ def submit_log():
 def form_submit():
     #store the json file of survey data locally
     survey_data = request.form
-    with open("survey_data/survey_{}.json".format(session['uid']), "w") as f:
+    with open("data/survey_{}.json".format(session['uid']), "w") as f:
         json.dump(survey_data, f)
     return redirect(url_for('thanks'))
 

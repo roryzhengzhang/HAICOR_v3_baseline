@@ -1,0 +1,68 @@
+{
+    "original_path": "leftover related to remaining synonym rest",
+    "operation_sequence": [
+        {
+            "type": "new node creation",
+            "new_node_name": "Friendship"
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "Excluding"
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "Belonging"
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "Friendship to Belonging",
+                "from": "Friendship",
+                "to": "Belonging",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 1801
+            }
+        },
+        {
+            "type": "new node creation",
+            "new_node_name": "Approval"
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "Friendship to Belonging",
+                "from": "Friendship",
+                "to": "Belonging",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 2830
+            }
+        },
+        {
+            "type": "new link creation",
+            "link_data": {
+                "key": "Friendship to Approval",
+                "from": "Friendship",
+                "to": "Approval",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 3708
+            }
+        },
+        {
+            "type": "delete link",
+            "delete_link": {
+                "key": "Friendship to Belonging",
+                "from": "Friendship",
+                "to": "Belonging",
+                "text": "related to",
+                "toText": "1",
+                "__gohashid": 1801
+            }
+        }
+    ],
+    "resulting_path": "{ \"class\": \"resulting_path\",\n  \"copiesArrays\": true,\n  \"copiesArrayObjects\": true,\n  \"nodeDataArray\": [ \n{\"key\":\"Friendship\", \"name\":\"Friendship\", \"location\":{\"class\":\"go.Point\", \"x\":-105.24933526644335, \"y\":-74.01366339238311}},\n{\"key\":\"Excluding\", \"name\":\"Excluding\", \"location\":{\"class\":\"go.Point\", \"x\":-55.63408163597765, \"y\":230.69749758294074}},\n{\"key\":\"Belonging\", \"name\":\"Belonging\", \"location\":{\"class\":\"go.Point\", \"x\":71.76789253543672, \"y\":62.818381859307124}},\n{\"key\":\"Approval\", \"name\":\"Approval\", \"location\":{\"class\":\"go.Point\", \"x\":-270.3265803750824, \"y\":59.753221767457326}}\n ],\n  \"linkDataArray\": [ \n{\"key\":\"Friendship to Belonging\", \"from\":\"Friendship\", \"to\":\"Belonging\", \"text\":\"related to\", \"toText\":\"1\"},\n{\"key\":\"Friendship to Approval\", \"from\":\"Friendship\", \"to\":\"Approval\", \"text\":\"related to\", \"toText\":\"1\"}\n ]}",
+    "duration": "8:10",
+    "is_start_over": true
+}

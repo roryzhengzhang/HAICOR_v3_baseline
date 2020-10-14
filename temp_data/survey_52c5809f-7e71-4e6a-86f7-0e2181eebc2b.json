@@ -1,0 +1,7 @@
+{
+    "rationality": "Somewhat_irrational",
+    "difficulty": "Hard_to_tell",
+    "feature_suggest": "allow the use to provide sentence level reasoning",
+    "modify_difficulty_comment": "using single concept to explain underlying reasoning is very limited ",
+    "usability_feedback": "Select from existing node/link instead of typing"
+}
