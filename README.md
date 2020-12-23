@@ -3,6 +3,6 @@ Human-AI co-reasoning system v3
 
 Collaborators
 ---
--Zheng Zhang
--Rich Magnotti
--Hecong Wang
+<p>Zheng Zhang</p>
+<p>Rich Magnotti</p>
+<p>Hecong Wang</p>
